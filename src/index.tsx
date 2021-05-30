@@ -2,26 +2,44 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
+const firstBook = {
+  img:
+    'https://images-na.ssl-images-amazon.com/images/I/517h-u1AQlL._SX482_BO1,204,203,200_.jpg',
+  title: 'I Love You to the Moon and Back',
+  author: 'Amelia Hepworth',
+}
+
+const secondBook = {
+  img:
+    'https://images-na.ssl-images-amazon.com/images/I/51PRQuO-xjL._SY498_BO1,204,203,200_.jpg',
+  title: 'If Animals Kissed Good Night',
+  author: 'Ann Whitford Paul',
+}
+
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      />
     </section>
   )
 }
 
-const author = 'Amelia Hepworth'
-
-const Book = () => {
-  const title = 'I Love You to the Moon and Back'
+const Book = (props: any) => {
+  console.log(props)
   return (
     <article className="book">
-      <img
-        src="https://images-na.ssl-images-amazon.com/images/I/517h-u1AQlL._SX482_BO1,204,203,200_.jpg"
-        alt=""
-      />
-      <h1>{title}</h1>
-      <h4>{author.toUpperCase()}</h4>
+      <img src={props.img} alt="" />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
     </article>
   )
 }
